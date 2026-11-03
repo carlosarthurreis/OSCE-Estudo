@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OSCE 18/11 · Plano de estudo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F2F4F7; --surface:#FFFFFF; --surface-2:#E8ECF2; --ink:#162033; --muted:#566275; --line:#D5DBE4;
+  --accent:#0F7C74; --accent-ink:#0A5A54; --accent-soft:#D9F1EE;
+  --doc:#34417A; --doc-soft:#E3E6F5; --aula:#1B6770; --aula-soft:#DCEFF0;
+  --alert:#B42318; --alert-soft:#FCE8E6; --ok:#1C7A4E; --ok-soft:#DFF2E8; --warn:#8F5400; --warn-soft:#FFF0D2;
+  --shadow:0 1px 2px rgba(22,32,51,.06),0 10px 28px rgba(22,32,51,.09);
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:14px; --hh:66px;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E131B; --surface:#151C27; --surface-2:#1D2633; --ink:#E6EBF2; --muted:#9DA9BB; --line:#2B3544;
+  --accent:#4CC3B5; --accent-ink:#7FD9CE; --accent-soft:#12302D;
+  --doc:#AEB9F2; --doc-soft:#1F2547; --aula:#72C7CF; --aula-soft:#12302F;
+  --alert:#F4897E; --alert-soft:#3A1A17; --ok:#6FCC9C; --ok-soft:#13301F; --warn:#F2B661; --warn-soft:#33250F;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px rgba(0,0,0,.4); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E131B; --surface:#151C27; --surface-2:#1D2633; --ink:#E6EBF2; --muted:#9DA9BB; --line:#2B3544;
+  --accent:#4CC3B5; --accent-ink:#7FD9CE; --accent-soft:#12302D;
+  --doc:#AEB9F2; --doc-soft:#1F2547; --aula:#72C7CF; --aula-soft:#12302F;
+  --alert:#F4897E; --alert-soft:#3A1A17; --ok:#6FCC9C; --ok-soft:#13301F; --warn:#F2B661; --warn-soft:#33250F;
+  --shadow:0 1px 2px rgba(0,0,0,.45),0 10px 28px rgba(0,0,0,.4); color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + var(--hh))}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0} ul,ol{margin:0;padding-left:1.2em} li+li{margin-top:.35em}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:clamp(16px,3.5vw,32px)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:20px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand b{font-family:var(--f-display);font-weight:800;font-size:19px;white-space:nowrap}
+.brand span{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tabs{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.tabs::-webkit-scrollbar{display:none}
+.tab{appearance:none;border:0;background:transparent;padding:10px 14px;min-height:44px;border-radius:10px;font-weight:700;font-size:15px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tab:hover{background:var(--surface-2);color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.tab .n{font-family:var(--f-mono);font-weight:400;font-size:12px;opacity:.75;margin-left:4px}
+.hero{padding-block:32px 18px;display:grid;gap:14px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.hero h1{font-size:clamp(30px,5vw,50px);font-weight:800;letter-spacing:-.02em;max-width:20ch}
+.hero h1 em{font-style:normal;color:var(--accent-ink)}
+.hero p{max-width:64ch;color:var(--muted);font-size:18px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:14px;color:var(--muted)}
+.src{display:inline-flex;font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;vertical-align:2px;white-space:nowrap;line-height:1.6}
+.src.doc{background:var(--doc-soft);color:var(--doc)}
+.src.aula{background:var(--aula-soft);color:var(--aula)}
+.src.comp{border:1px dashed var(--muted);color:var(--muted);padding:1px 7px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;display:grid;gap:4px;align-content:start}
+.stat .v{font-family:var(--f-display);font-weight:800;font-size:32px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:16px;font-weight:600;color:var(--muted);margin-left:2px}
+.stat .l{font-size:14.5px;color:var(--muted);line-height:1.45}
+.prog{height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.box{border-radius:var(--r);padding:14px 18px;display:grid;gap:8px;font-size:16px}
+.box.comp{border:1px dashed var(--line)}
+.box.key{background:var(--accent-soft)}
+.box.warn{background:var(--warn-soft)}
+.kicker{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.box .kicker{color:inherit;opacity:.8}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:14px;min-height:54px;padding:10px 16px;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;color:var(--ink)}
+.btn:hover{border-color:var(--muted)}
+.btn.sm{min-height:44px;font-size:14.5px;border-radius:12px;padding:8px 14px}
+.btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.no{background:var(--alert-soft);color:var(--alert);border-color:transparent}
+.btn.yes{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.btn.ic{width:54px;padding:0}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+/* plano */
+.days{display:grid;gap:14px;padding-bottom:60px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;scroll-margin-top:calc(var(--hh) + 16px)}
+.day>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 18px;min-height:60px}
+.day>summary::-webkit-details-marker{display:none}
+.day .dt{font-family:var(--f-display);font-weight:800;font-size:22px;line-height:1;text-align:center;min-width:52px}
+.day .dt small{display:block;font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.day .win{font-size:15px;color:var(--muted);line-height:1.4}
+.day .win b{display:block;color:var(--ink);font-size:16px}
+.badge{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}
+.badge.plantao{background:var(--warn-soft);color:var(--warn)}
+.badge.prova{background:var(--alert-soft);color:var(--alert)}
+.badge.livre{background:var(--ok-soft);color:var(--ok)}
+.day.today{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.day.past{opacity:.78}
+.day .body{border-top:1px solid var(--line);padding:6px 18px 18px;display:grid;gap:16px}
+.blk{display:grid;gap:6px}
+.blk h4{font-size:16px;font-weight:600;padding-top:10px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.blk h4 .kicker{font-weight:400}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:6px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .nm{min-width:0;line-height:1.35}
+.row .meta{display:block;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin-top:2px}
+.pr{font-family:var(--f-mono);font-size:11px;font-weight:500;padding:1px 6px;border-radius:6px;margin-right:6px;vertical-align:1px}
+.pr.A{background:var(--accent-soft);color:var(--accent-ink)}
+.pr.B{background:var(--surface-2);color:var(--muted)}
+.tgs{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tg{appearance:none;border:1.5px solid var(--line);background:var(--bg);border-radius:10px;min-width:44px;min-height:44px;padding:0 8px;font-family:var(--f-mono);font-size:12.5px;font-weight:500;cursor:pointer;color:var(--muted)}
+.tg[aria-pressed="true"]{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.note{font-size:15px;color:var(--muted)}
+/* temas */
+.view-h{padding-block:30px 14px;display:grid;gap:10px}
+.view-h h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.02em}
+.view-h p{color:var(--muted);max-width:66ch}
+.tools{display:grid;gap:12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hh));z-index:5;background:var(--bg);padding-block:10px}
+.search{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 14px;min-height:50px}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:inherit;color:var(--ink);outline:none;padding:12px 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 14px;min-height:44px;font-size:14.5px;font-weight:700;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip .c{font-family:var(--f-mono);font-weight:400;font-size:12px;opacity:.7;margin-left:4px}
+.tlist{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;margin-bottom:60px}
+.tlist .row{padding:10px 0}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+/* osce */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.panel h3{font-size:19px;font-weight:600;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+ol.steps{list-style:none;padding:0;display:grid;gap:10px;counter-reset:s}
+ol.steps>li{margin:0;display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;counter-increment:s}
+ol.steps>li::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:14px}
+.osce{display:grid;gap:22px;padding-bottom:60px}
+/* flashcards */
+.fc{min-height:calc(100dvh - var(--hh) - 4px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding-block:22px 40px;text-align:center}
+.fc-decks{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:860px}
+.fc-meta{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;width:min(680px,100%)}
+.fc-meta .prog{flex:1;min-width:120px}
+.stage{width:min(680px,100%);perspective:1600px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.card{display:grid;cursor:pointer;transition:transform .5s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.card.flip{transform:rotateY(180deg)}
+.face{grid-area:1/1;min-height:min(380px,58dvh);background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:30px clamp(20px,5vw,44px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.back{transform:rotateY(180deg);border-color:var(--accent)}
+.face .deck{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.face .txt{font-family:var(--f-display);font-weight:600;font-size:clamp(21px,3.2vw,28px);line-height:1.3;text-wrap:balance;max-width:30ch}
+.face .txt.long{font-size:clamp(18px,2.4vw,21px)}
+.face.back .txt{font-family:var(--f-body);font-weight:400;font-size:clamp(17px,2.4vw,20px);line-height:1.55;text-wrap:pretty;max-width:46ch;text-align:left}
+.face .hint{font-size:13.5px;color:var(--muted)}
+.fc-ctrl{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:10px;width:min(680px,100%)}
+.fc-sub{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.kbd{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+@media (max-width:960px){.brand span{display:none}.tab{padding:10px 11px}}
+@media (max-width:640px){
+  body{font-size:16.5px} .tabs{margin-left:0;width:100%} .tab{padding:9px 11px;font-size:14.5px} .tab .n{display:none}
+  .row{grid-template-columns:minmax(0,1fr)} .tgs{justify-content:flex-start}
+  .day>summary{grid-template-columns:auto minmax(0,1fr)} .day>summary .badge{grid-column:2;justify-self:start}
+  .fc-ctrl{grid-template-columns:1fr 1fr} .fc-ctrl .ic{width:auto}
+}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="4" y="4" width="20" height="20" rx="5" fill="none" stroke="var(--accent)" stroke-width="3"/><path d="M9 14l3.5 3.5L19 10" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>OSCE 18/11</b><span>Plano de estudo · 03 a 17/11</span></div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Seções">
+      <button class="tab" role="tab" id="tab-plano" data-view="plano" aria-selected="true">Plano</button>
+      <button class="tab" role="tab" id="tab-temas" data-view="temas" aria-selected="false">Temas<span class="n" id="tcount"></span></button>
+      <button class="tab" role="tab" id="tab-osce" data-view="osce" aria-selected="false">Como é o OSCE</button>
+      <button class="tab" role="tab" id="tab-flashcards" data-view="flashcards" aria-selected="false">Flashcards<span class="n" id="fccount"></span></button>
+    </nav>
+  </div>
+</header>
+
+<main id="view-plano" class="view" role="tabpanel" aria-labelledby="tab-plano">
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Prova prática · quarta, 18/11</div>
+      <h1>97 temas em 10 dias de mesa. <em>As brechas são para revisar.</em></h1>
+      <p>Tema novo só na mesa, à noite, na quarta à tarde e no sábado de manhã. Revisão 24h e 7 dias vai para o almoço, as tardes sem paciente e a madrugada do plantão, direto nos flashcards. O 13/11 fica de folga para recuperar atraso, e 16 e 17/11 são de revisão final.</p>
+      <div class="legend"><span>Origem:</span>
+        <span class="src doc">Planilha</span><span>temas da sua planilha</span>
+        <span class="src aula">Você</span><span>horários e formato da prova</span>
+        <span class="src comp">Complemento</span><span>sugestão minha, ajuste à vontade</span></div>
+    </section>
+    <div class="stats" style="margin-bottom:14px">
+      <div class="stat"><div class="v" id="sDays">–</div><div class="l" id="sDaysL">dias até a prova</div></div>
+      <div class="stat"><div class="v" id="sStudied">0<small>/97</small></div><div class="l">temas estudados (etapa E)</div></div>
+      <div class="stat"><div class="v" id="sPct">0<small>%</small></div><div class="l">de todas as etapas marcadas</div><div class="prog"><i id="sBar"></i></div></div>
+    </div>
+    <div class="box key" style="margin-bottom:14px"><span class="kicker">Como marcar</span>
+      <p><b>E</b> estudo · <b>R</b> resumo/roteiro da estação · <b>F</b> flashcards feitos · <b>24h</b> e <b>7d</b> revisões · <b>Fim</b> revisão final. O que você marca aqui aparece também na aba Temas.</p><p class="note" id="sync" role="status" style="color:inherit">Verificando onde salvar o progresso…</p></div>
+    <details class="box comp" style="margin-bottom:14px"><summary style="cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center">Backup do progresso (segurança extra)</summary>
+      <p class="note">Toque em Gerar código e guarde o texto, por exemplo mandando para você mesma no WhatsApp. Se o progresso sumir, cole o código aqui e toque em Restaurar.</p>
+      <textarea id="bk" rows="3" aria-label="Código de backup" style="width:100%;font:13px var(--f-mono);border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);color:var(--ink)"></textarea>
+      <div class="bar"><button class="btn sm" id="bkGen">Gerar código</button><button class="btn sm" id="bkCopy">Copiar</button><button class="btn sm" id="bkLoad">Restaurar</button><span class="note" id="bkMsg" role="status"></span></div></details>
+    <div class="box comp" style="margin-bottom:18px"><span class="kicker">Por que não tem 30 dias <span class="src comp">Complemento</span></span>
+      <p>A revisão de 30 dias da sua planilha cai depois da prova. No lugar dela entra a <b>revisão final</b> de 16 e 17/11. As revisões de 7 dias que cairiam em 16/11 ou depois também foram absorvidas por ela.</p></div>
+    <div class="bar" style="margin-bottom:14px"><button class="btn sm" id="goToday">Ir para hoje</button><button class="btn sm" id="expandAll">Abrir todos os dias</button></div>
+    <div class="days" id="days"></div>
+  </div>
+</main>
+
+<main id="view-temas" class="view" role="tabpanel" aria-labelledby="tab-temas" hidden>
+  <div class="wrap">
+    <div class="view-h"><div class="eyebrow"><span class="src doc">Planilha</span></div><h2>Todos os temas</h2>
+      <p><b>A</b> = cara de estação prática, 25 min na mesa. <b>B</b> = leitura rápida, 15 min. A prioridade é sugestão minha <span class="src comp">Complemento</span>; os temas sublinhados na planilha de Urologia ficaram em A. Raiva, Tétano, MCCP e Princípios da MFC apareciam em duas abas e entraram uma vez só, em MFC I.</p></div>
+    <div class="tools">
+      <label class="search" for="tsearch"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="tsearch" type="search" placeholder="Buscar tema…" autocomplete="off"></label>
+      <div class="chips" id="tchips"></div>
+    </div>
+    <div class="tlist" id="tlist"></div>
+  </div>
+</main>
+
+<main id="view-osce" class="view" role="tabpanel" aria-labelledby="tab-osce" hidden>
+  <div class="wrap osce">
+    <div class="view-h"><div class="eyebrow">Prova prática</div><h2>O avaliador só marca o que vê e ouve</h2>
+      <p>No OSCE há a simulação de um caso clínico: você conduz o atendimento e responde às perguntas enquanto o avaliador vai ticando um checklist <span class="src aula">Você</span>. Por isso o estudo de cada tema termina num roteiro falado, e não só no conteúdo.</p></div>
+
+    <div class="cols">
+      <div class="panel"><h3>Roteiro de qualquer estação <span class="src comp">Complemento</span></h3>
+        <ol class="steps">
+          <li><span><b>Leia a instrução da porta</b>Tarefa, cenário e tempo. Faça só o que foi pedido.</span></li>
+          <li><span><b>Higienize as mãos</b>e fale que está higienizando.</span></li>
+          <li><span><b>Apresente-se e identifique o paciente</b>nome completo e, se houver, o acompanhante.</span></li>
+          <li><span><b>Explique e peça consentimento</b>antes de examinar.</span></li>
+          <li><span><b>Anamnese dirigida</b>queixa, tempo, sinais de alarme, antecedentes, medicações, alergias.</span></li>
+          <li><span><b>Exame físico dirigido, verbalizado</b>diga o que examina e peça o achado ao avaliador.</span></li>
+          <li><span><b>Hipótese e diferencial</b>em voz alta.</span></li>
+          <li><span><b>Conduta</b>exames, tratamento com dose e via, encaminhamento.</span></li>
+          <li><span><b>Orientações</b>em linguagem simples, sinais de alarme e retorno.</span></li>
+          <li><span><b>Feche</b>pergunte se ficou alguma dúvida e agradeça.</span></li>
+        </ol></div>
+      <div class="panel"><h3>Como estudar cada tema para checklist <span class="src comp">Complemento</span></h3>
+        <ul>
+          <li><b>R da planilha = roteiro da estação.</b> Uma página: o que perguntar, o que examinar, a conduta e o que orientar.</li>
+          <li><b>Treine em voz alta, com cronômetro.</b> Ponto que não é falado não é marcado.</li>
+          <li><b>Peça para alguém fazer o paciente</b> lendo o caso de uma questão. Funciona até por chamada de vídeo.</li>
+          <li><b>Questões no plantão:</b> leia o caso e, antes das alternativas, diga a conduta completa. Depois confira.</li>
+          <li><b>Comunicação conta ponto:</b> empatia, checar entendimento, não usar jargão.</li>
+        </ul></div>
+    </div>
+
+    <div class="cols">
+      <div class="panel"><h3>Estações prováveis por área <span class="src comp">Complemento</span></h3>
+        <ul>
+          <li><b>UPA:</b> atendimento inicial ABCDE, PCR, choque, trauma, dor torácica com ECG.</li>
+          <li><b>Pediatria:</b> anamnese com o responsável, desidratação, febre, puericultura e vacinas, SBV pediátrico.</li>
+          <li><b>MFC I e II:</b> consulta centrada na pessoa, SOAP, profilaxia de tétano e raiva, más notícias, paliativos.</li>
+          <li><b>Cirúrgicas</b> (vascular, ORL, ortopedia, urologia): exame físico dirigido, conduta inicial e orientação.</li>
+        </ul>
+        <p class="note">Confirme com a turma ou com o edital da prova quais áreas entram. Se só MFC II e UPA entram, ignore os outros dias e me avise que eu refaço o plano.</p></div>
+      <div class="panel"><h3>Véspera e dia da prova <span class="src comp">Complemento</span></h3>
+        <ul>
+          <li><b>17/11:</b> só flashcards marcados “revisar” e os roteiros. Nada de tema novo.</li>
+          <li>Dormir cedo vale mais que uma hora a mais de estudo.</li>
+          <li><b>18/11:</b> jaleco, estetoscópio, documento e o que a faculdade pedir. Chegue cedo.</li>
+          <li>Errou uma estação? Ela acabou. Cada estação começa do zero.</li>
+        </ul></div>
+    </div>
+  </div>
+</main>
+
+<main id="view-flashcards" class="view" role="tabpanel" aria-labelledby="tab-flashcards" hidden>
+  <div class="wrap">
+    <section class="fc" aria-label="Flashcards">
+      <p class="note" style="max-width:60ch">Baralho de postura e roteiros-base de estação <span class="src comp">Complemento</span>. Confira os números com o material da disciplina. Os flashcards de cada tema vêm do material das aulas.</p>
+      <div class="fc-decks" id="fcdecks"></div>
+      <div class="fc-meta"><span id="fcpos"></span><div class="prog"><i id="fcbar"></i></div><span id="fcstat"></span></div>
+      <div class="stage" id="stage">
+        <div class="card" id="card" tabindex="0" role="button" aria-label="Virar cartão">
+          <div class="face front"><span class="deck" id="fdeck"></span><div class="txt" id="fq"></div><span class="hint">Toque para virar · deslize para trocar</span></div>
+          <div class="face back" aria-hidden="true"><span class="deck" id="bdeck"></span><div class="txt" id="fa"></div></div>
+        </div>
+        <div id="fcdone" hidden><div class="face" style="min-height:300px"><span class="deck">Fim do baralho</span><div class="txt" id="donetxt"></div>
+          <div class="fc-sub"><button class="btn sm" id="redoWrong">Rever os que errei</button><button class="btn sm" id="redoAll">Recomeçar</button></div></div></div>
+      </div>
+      <div class="fc-ctrl">
+        <button class="btn ic" id="prev" aria-label="Cartão anterior">←</button>
+        <button class="btn no" id="markNo">Revisar</button>
+        <button class="btn yes" id="markYes">Sei</button>
+        <button class="btn ic" id="next" aria-label="Próximo cartão">→</button>
+      </div>
+      <div class="fc-sub">
+        <button class="btn sm" id="shuffle" aria-pressed="false">Embaralhar</button>
+        <button class="btn sm" id="onlyWrong" aria-pressed="false">Só “revisar”</button>
+        <button class="btn sm" id="clearMarks">Zerar marcações</button>
+      </div>
+      <p class="kbd">Teclado: espaço vira · ← → navega · 1 revisar · 2 sei</p>
+    </section>
+  </div>
+</main>
+
+<script>
+var KEY="osce-1811";
+var DATA={"areas": [["upa", "UPA / Emergência"], ["mfc1", "MFC I"], ["ped", "Pediatria"], ["mfc2", "MFC II"], ["vasc", "Vascular"], ["orl", "Otorrino"], ["orto", "Ortopedia"], ["uro", "Urologia"], ["cir", "Lesões e biópsias"]], "topics": [{"id": "upa0", "a": "upa", "n": "Paciente crítico (ABCDE)", "p": "A", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa1", "a": "upa", "n": "RCP", "p": "A", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa2", "a": "upa", "n": "Via aérea difícil", "p": "A", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa3", "a": "upa", "n": "Choque séptico", "p": "A", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa4", "a": "upa", "n": "Choque hipovolêmico", "p": "A", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa5", "a": "upa", "n": "Choque anafilático", "p": "A", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa6", "a": "upa", "n": "Choque neurogênico", "p": "B", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa7", "a": "upa", "n": "Drogas vasoativas", "p": "B", "d": "2026-11-03", "r24": "2026-11-04", "r7": "2026-11-10", "fin": "2026-11-16"}, {"id": "upa8", "a": "upa", "n": "Dor torácica", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa9", "a": "upa", "n": "IAM", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa10", "a": "upa", "n": "Taquiarritmias", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa11", "a": "upa", "n": "Bradiarritmias", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa12", "a": "upa", "n": "Insuficiência cardíaca", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa13", "a": "upa", "n": "Emergências hipertensivas", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa14", "a": "upa", "n": "Broncoespasmo", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa15", "a": "upa", "n": "DM (emergências)", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa16", "a": "upa", "n": "Intoxicação exógena", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa17", "a": "upa", "n": "Urgências psiquiátricas", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa18", "a": "upa", "n": "Politrauma", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa19", "a": "upa", "n": "TCE", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa20", "a": "upa", "n": "Trauma torácico", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa21", "a": "upa", "n": "Trauma abdominal", "p": "B", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "upa22", "a": "upa", "n": "Abdome agudo", "p": "A", "d": "2026-11-04", "r24": "2026-11-05", "r7": "2026-11-11", "fin": "2026-11-16"}, {"id": "mfc10", "a": "mfc1", "n": "SOAP", "p": "A", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc11", "a": "mfc1", "n": "Método clínico centrado na pessoa", "p": "A", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc12", "a": "mfc1", "n": "APS e princípios da MFC", "p": "B", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc13", "a": "mfc1", "n": "Princípios e história do SUS", "p": "B", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc14", "a": "mfc1", "n": "Rastreamentos", "p": "A", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc15", "a": "mfc1", "n": "Raiva humana", "p": "A", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc16", "a": "mfc1", "n": "Tétano acidental e neonatal", "p": "A", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc17", "a": "mfc1", "n": "HAS, DLP e DM", "p": "A", "d": "2026-11-05", "r24": "2026-11-06", "r7": "2026-11-12", "fin": "2026-11-16"}, {"id": "mfc18", "a": "mfc1", "n": "Pré-natal e puericultura", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-16"}, {"id": "ped0", "a": "ped", "n": "Suporte básico de vida em pediatria", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-17"}, {"id": "ped1", "a": "ped", "n": "Febre sem sinais localizatórios", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-17"}, {"id": "ped2", "a": "ped", "n": "Diarreia aguda e complicações", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-17"}, {"id": "ped3", "a": "ped", "n": "Doenças exantemáticas", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-17"}, {"id": "ped4", "a": "ped", "n": "Infecção do trato urinário", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-17"}, {"id": "ped5", "a": "ped", "n": "Pneumonia", "p": "A", "d": "2026-11-06", "r24": "2026-11-07", "r7": "2026-11-13", "fin": "2026-11-17"}, {"id": "ped6", "a": "ped", "n": "Bronquiolite e coqueluche", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped7", "a": "ped", "n": "Lactente sibilante", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped8", "a": "ped", "n": "Asma", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped9", "a": "ped", "n": "IVAS, COVID e influenza", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped10", "a": "ped", "n": "Crescimento deficiente", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped11", "a": "ped", "n": "Transtornos do neurodesenvolvimento", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped12", "a": "ped", "n": "Suplementação de micronutrientes", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped13", "a": "ped", "n": "Diagnóstico diferencial da anemia", "p": "A", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped14", "a": "ped", "n": "Neoplasias", "p": "B", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped15", "a": "ped", "n": "Manejo da neutropenia febril", "p": "B", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped16", "a": "ped", "n": "Alergia alimentar", "p": "B", "d": "2026-11-07", "r24": "2026-11-08", "r7": "2026-11-14", "fin": "2026-11-17"}, {"id": "ped17", "a": "ped", "n": "Dermatite atópica e de contato", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped18", "a": "ped", "n": "Rinite alérgica", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped19", "a": "ped", "n": "Infecção de pele e partes moles (piodermites)", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped20", "a": "ped", "n": "Puberdade precoce", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped21", "a": "ped", "n": "Hipotireoidismo", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped22", "a": "ped", "n": "Obesidade e comorbidades", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped23", "a": "ped", "n": "HAS na criança", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped24", "a": "ped", "n": "Dor em membros", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped25", "a": "ped", "n": "Doença do refluxo gastroesofágico", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped26", "a": "ped", "n": "Distúrbios gastrointestinais funcionais", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped27", "a": "ped", "n": "Transtornos do aprendizado", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped28", "a": "ped", "n": "Princípios do diagnóstico genético", "p": "B", "d": "2026-11-08", "r24": "2026-11-09", "r7": "2026-11-15", "fin": "2026-11-17"}, {"id": "ped29", "a": "ped", "n": "Ética no atendimento pediátrico", "p": "B", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-17"}, {"id": "mfc20", "a": "mfc2", "n": "Comunicação de más notícias", "p": "A", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc21", "a": "mfc2", "n": "Abordagem ao luto", "p": "A", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc22", "a": "mfc2", "n": "Cuidados paliativos (princípios, definição e indicação)", "p": "A", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc23", "a": "mfc2", "n": "Controle de sintomas (fadiga, dispneia e dor)", "p": "A", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc24", "a": "mfc2", "n": "Tabagismo", "p": "A", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc25", "a": "mfc2", "n": "Imunizações", "p": "A", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc26", "a": "mfc2", "n": "Sobrecarga do cuidador", "p": "B", "d": "2026-11-09", "r24": "2026-11-10", "r7": null, "fin": "2026-11-16"}, {"id": "mfc27", "a": "mfc2", "n": "Assistência domiciliar", "p": "B", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "mfc28", "a": "mfc2", "n": "Paralisia cerebral e criança deficiente", "p": "B", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "mfc29", "a": "mfc2", "n": "Sedação paliativa", "p": "B", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "mfc210", "a": "mfc2", "n": "Bioética", "p": "B", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "mfc211", "a": "mfc2", "n": "Legislação em cuidados paliativos", "p": "B", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "vasc0", "a": "vasc", "n": "Pé diabético", "p": "A", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "vasc1", "a": "vasc", "n": "Erisipela", "p": "A", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "vasc2", "a": "vasc", "n": "Doença arterial periférica", "p": "A", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "vasc3", "a": "vasc", "n": "Insuficiência venosa crônica", "p": "A", "d": "2026-11-10", "r24": "2026-11-11", "r7": null, "fin": "2026-11-16"}, {"id": "orl0", "a": "orl", "n": "Epistaxe", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orl1", "a": "orl", "n": "Corpo estranho", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orl2", "a": "orl", "n": "Síndromes vertiginosas", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orl3", "a": "orl", "n": "Infecções respiratórias (ORL)", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orto0", "a": "orto", "n": "Fratura exposta e lesões fisárias", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orto1", "a": "orto", "n": "Luxação e instabilidade do ombro", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orto2", "a": "orto", "n": "Lesões de tornozelo", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orto3", "a": "orto", "n": "Artrite séptica", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "orto4", "a": "orto", "n": "Fratura de quadril", "p": "B", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "uro0", "a": "uro", "n": "Litíase", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "uro1", "a": "uro", "n": "Urgências urológicas", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "uro2", "a": "uro", "n": "Câncer de próstata", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "uro3", "a": "uro", "n": "Hiperplasia prostática benigna", "p": "A", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "uro4", "a": "uro", "n": "Trauma renal", "p": "B", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "uro5", "a": "uro", "n": "Trauma de bexiga e uretra", "p": "B", "d": "2026-11-11", "r24": "2026-11-12", "r7": null, "fin": "2026-11-17"}, {"id": "cir0", "a": "cir", "n": "Lesões benignas e malignas", "p": "A", "d": "2026-11-12", "r24": "2026-11-13", "r7": null, "fin": "2026-11-17"}, {"id": "cir1", "a": "cir", "n": "Biópsias", "p": "A", "d": "2026-11-12", "r24": "2026-11-13", "r7": null, "fin": "2026-11-17"}, {"id": "cir2", "a": "cir", "n": "Tipos de tratamento cirúrgico", "p": "B", "d": "2026-11-12", "r24": "2026-11-13", "r7": null, "fin": "2026-11-17"}, {"id": "cir3", "a": "cir", "n": "Aspectos bioéticos", "p": "B", "d": "2026-11-12", "r24": "2026-11-13", "r7": null, "fin": "2026-11-17"}], "days": [{"d": "2026-11-03", "w": "Ter", "k": "aula", "win": "Noite 19h30–22h30"}, {"d": "2026-11-04", "w": "Qua", "k": "tarde", "win": "Tarde livre 13h30–18h + noite até 21h30"}, {"d": "2026-11-05", "w": "Qui", "k": "aula", "win": "Noite 19h30–22h30"}, {"d": "2026-11-06", "w": "Sex", "k": "aula", "win": "Noite 19h30–22h30"}, {"d": "2026-11-07", "w": "Sáb", "k": "plantao-n", "win": "Manhã 8h30–12h30 · tarde: dormir antes do plantão"}, {"d": "2026-11-08", "w": "Dom", "k": "pos", "win": "Pós-plantão: dormir de manhã · 15h–18h"}, {"d": "2026-11-09", "w": "Seg", "k": "aula", "win": "Noite 19h30–22h30"}, {"d": "2026-11-10", "w": "Ter", "k": "aula", "win": "Noite 19h30–22h30"}, {"d": "2026-11-11", "w": "Qua", "k": "tarde", "win": "Tarde livre 13h30–18h + noite até 21h30"}, {"d": "2026-11-12", "w": "Qui", "k": "aula", "win": "Noite 19h30–22h30"}, {"d": "2026-11-13", "w": "Sex", "k": "aula", "win": "Noite 19h30–22h · dormir cedo (plantão às 7h)"}, {"d": "2026-11-14", "w": "Sáb", "k": "plantao", "win": "Plantão 7h–19h"}, {"d": "2026-11-15", "w": "Dom", "k": "plantao", "win": "Plantão 7h–19h"}, {"d": "2026-11-16", "w": "Seg", "k": "aula", "win": "Noite 19h30–22h30 · revisão final"}, {"d": "2026-11-17", "w": "Ter", "k": "aula", "win": "Noite 19h30–21h30 · revisão final leve e dormir cedo"}, {"d": "2026-11-18", "w": "Qua", "k": "prova", "win": "OSCE"}], "plan": {"2026-11-03": {"new": ["upa0", "upa1", "upa2", "upa3", "upa4", "upa5", "upa6", "upa7"], "r24": [], "r7": [], "fin": []}, "2026-11-04": {"new": ["upa8", "upa9", "upa10", "upa11", "upa12", "upa13", "upa14", "upa15", "upa16", "upa17", "upa18", "upa19", "upa20", "upa21", "upa22"], "r24": ["upa0", "upa1", "upa2", "upa3", "upa4", "upa5", "upa6", "upa7"], "r7": [], "fin": []}, "2026-11-05": {"new": ["mfc10", "mfc11", "mfc12", "mfc13", "mfc14", "mfc15", "mfc16", "mfc17"], "r24": ["upa8", "upa9", "upa10", "upa11", "upa12", "upa13", "upa14", "upa15", "upa16", "upa17", "upa18", "upa19", "upa20", "upa21", "upa22"], "r7": [], "fin": []}, "2026-11-06": {"new": ["mfc18", "ped0", "ped1", "ped2", "ped3", "ped4", "ped5"], "r24": ["mfc10", "mfc11", "mfc12", "mfc13", "mfc14", "mfc15", "mfc16", "mfc17"], "r7": [], "fin": []}, "2026-11-07": {"new": ["ped6", "ped7", "ped8", "ped9", "ped10", "ped11", "ped12", "ped13", "ped14", "ped15", "ped16"], "r24": ["mfc18", "ped0", "ped1", "ped2", "ped3", "ped4", "ped5"], "r7": [], "fin": []}, "2026-11-08": {"new": ["ped17", "ped18", "ped19", "ped20", "ped21", "ped22", "ped23", "ped24", "ped25", "ped26", "ped27", "ped28"], "r24": ["ped6", "ped7", "ped8", "ped9", "ped10", "ped11", "ped12", "ped13", "ped14", "ped15", "ped16"], "r7": [], "fin": []}, "2026-11-09": {"new": ["ped29", "mfc20", "mfc21", "mfc22", "mfc23", "mfc24", "mfc25", "mfc26"], "r24": ["ped17", "ped18", "ped19", "ped20", "ped21", "ped22", "ped23", "ped24", "ped25", "ped26", "ped27", "ped28"], "r7": [], "fin": []}, "2026-11-10": {"new": ["mfc27", "mfc28", "mfc29", "mfc210", "mfc211", "vasc0", "vasc1", "vasc2", "vasc3"], "r24": ["ped29", "mfc20", "mfc21", "mfc22", "mfc23", "mfc24", "mfc25", "mfc26"], "r7": ["upa0", "upa1", "upa2", "upa3", "upa4", "upa5", "upa6", "upa7"], "fin": []}, "2026-11-11": {"new": ["orl0", "orl1", "orl2", "orl3", "orto0", "orto1", "orto2", "orto3", "orto4", "uro0", "uro1", "uro2", "uro3", "uro4", "uro5"], "r24": ["mfc27", "mfc28", "mfc29", "mfc210", "mfc211", "vasc0", "vasc1", "vasc2", "vasc3"], "r7": ["upa8", "upa9", "upa10", "upa11", "upa12", "upa13", "upa14", "upa15", "upa16", "upa17", "upa18", "upa19", "upa20", "upa21", "upa22"], "fin": []}, "2026-11-12": {"new": ["cir0", "cir1", "cir2", "cir3"], "r24": ["orl0", "orl1", "orl2", "orl3", "orto0", "orto1", "orto2", "orto3", "orto4", "uro0", "uro1", "uro2", "uro3", "uro4", "uro5"], "r7": ["mfc10", "mfc11", "mfc12", "mfc13", "mfc14", "mfc15", "mfc16", "mfc17"], "fin": []}, "2026-11-13": {"new": [], "r24": ["cir0", "cir1", "cir2", "cir3"], "r7": ["mfc18", "ped0", "ped1", "ped2", "ped3", "ped4", "ped5"], "fin": []}, "2026-11-14": {"new": [], "r24": [], "r7": ["ped6", "ped7", "ped8", "ped9", "ped10", "ped11", "ped12", "ped13", "ped14", "ped15", "ped16"], "fin": []}, "2026-11-15": {"new": [], "r24": [], "r7": ["ped17", "ped18", "ped19", "ped20", "ped21", "ped22", "ped23", "ped24", "ped25", "ped26", "ped27", "ped28"], "fin": []}, "2026-11-16": {"new": [], "r24": [], "r7": [], "fin": ["upa0", "upa1", "upa2", "upa3", "upa4", "upa5", "upa6", "upa7", "upa8", "upa9", "upa10", "upa11", "upa12", "upa13", "upa14", "upa15", "upa16", "upa17", "upa18", "upa19", "upa20", "upa21", "upa22", "mfc10", "mfc11", "mfc12", "mfc13", "mfc14", "mfc15", "mfc16", "mfc17", "mfc18", "mfc20", "mfc21", "mfc22", "mfc23", "mfc24", "mfc25", "mfc26", "mfc27", "mfc28", "mfc29", "mfc210", "mfc211", "vasc0", "vasc1", "vasc2", "vasc3"]}, "2026-11-17": {"new": [], "r24": [], "r7": [], "fin": ["ped0", "ped1", "ped2", "ped3", "ped4", "ped5", "ped6", "ped7", "ped8", "ped9", "ped10", "ped11", "ped12", "ped13", "ped14", "ped15", "ped16", "ped17", "ped18", "ped19", "ped20", "ped21", "ped22", "ped23", "ped24", "ped25", "ped26", "ped27", "ped28", "ped29", "orl0", "orl1", "orl2", "orl3", "orto0", "orto1", "orto2", "orto3", "orto4", "uro0", "uro1", "uro2", "uro3", "uro4", "uro5", "cir0", "cir1", "cir2", "cir3"]}, "2026-11-18": {"new": [], "r24": [], "r7": [], "fin": []}}};
+var C=[
+["Postura de estação","Primeira coisa ao chegar na porta da estação?","<b>Ler a instrução inteira</b>: tarefa, cenário e tempo. Fazer só o que foi pedido."],
+["Postura de estação","O que fazer antes de tocar o paciente?","<ul><li><b>Higienizar as mãos</b> (e dizer que está higienizando)</li><li>Apresentar-se e confirmar o nome do paciente</li><li>Explicar o que vai fazer e pedir consentimento</li></ul>"],
+["Postura de estação","O exame físico não tem achados descritos. O que fazer?","<b>Verbalizar</b> cada passo (“vou auscultar o tórax”) e <b>pedir o achado</b> ao avaliador."],
+["Postura de estação","Por que falar tudo em voz alta?","O avaliador só marca no checklist o que <b>vê ou ouve</b>. Pensou e não falou, não pontua."],
+["Postura de estação","O que não pode faltar depois da conduta?","<ul><li><b>Orientações</b> em linguagem simples</li><li><b>Sinais de alarme</b></li><li><b>Retorno</b> ou seguimento</li><li>Perguntar se ficou alguma dúvida</li></ul>"],
+["Postura de estação","Como prescrever na estação?","Medicamento com <b>dose, via, intervalo e duração</b>. “Dar antibiótico” sozinho costuma não pontuar."],
+["Postura de estação","Travou no meio da estação. E agora?","Volte ao roteiro: <b>resuma o que já tem</b> em voz alta e siga para o próximo passo (exame, hipótese, conduta)."],
+["Postura de estação","Como checar se o paciente entendeu?","Pedir que ele <b>repita com as próprias palavras</b> o que vai fazer (teach-back)."],
+["Roteiros-base","ABCDE do atendimento inicial: o que é cada letra?","<ul><li><b>A</b> via aérea com proteção cervical</li><li><b>B</b> respiração e ventilação</li><li><b>C</b> circulação e controle de hemorragia</li><li><b>D</b> neurológico (Glasgow, pupilas)</li><li><b>E</b> exposição e controle da temperatura</li></ul>"],
+["Roteiros-base","No XABCDE, o que é o X?","<b>Hemorragia externa exsanguinante</b>, controlada antes da via aérea."],
+["Roteiros-base","Regra de ouro do ABCDE?","Achou problema numa letra, <b>trata antes de passar</b> para a próxima. Reavaliar depois de cada intervenção."],
+["Roteiros-base","SAMPLE: o que perguntar?","<ul><li><b>S</b> sinais e sintomas</li><li><b>A</b> alergias</li><li><b>M</b> medicações</li><li><b>P</b> passado médico</li><li><b>L</b> última refeição (líquidos)</li><li><b>E</b> eventos e ambiente</li></ul>"],
+["Roteiros-base","Glasgow: quais os 3 itens e a pontuação de cada?","<ul><li><b>Abertura ocular</b> 1 a 4</li><li><b>Resposta verbal</b> 1 a 5</li><li><b>Resposta motora</b> 1 a 6</li></ul>Total de <b>3 a 15</b>."],
+["Roteiros-base","SPIKES: quais as 6 etapas?","<ul><li><b>S</b> preparar o ambiente (Setting)</li><li><b>P</b> o que o paciente já sabe (Perception)</li><li><b>I</b> quanto ele quer saber (Invitation)</li><li><b>K</b> dar a notícia (Knowledge)</li><li><b>E</b> acolher as emoções (Emotions/Empathy)</li><li><b>S</b> resumir e planejar (Strategy/Summary)</li></ul>"],
+["Roteiros-base","No SPIKES, como dar a notícia (K)?","<b>Aviso prévio</b> (“infelizmente não tenho boas notícias”), frases curtas, sem jargão, e pausa para a reação."],
+["Roteiros-base","SOAP: o que vai em cada parte?","<ul><li><b>S</b> subjetivo: o que a pessoa relata</li><li><b>O</b> objetivo: exame físico e exames</li><li><b>A</b> avaliação: problemas e hipóteses</li><li><b>P</b> plano: conduta, orientação, seguimento</li></ul>"],
+["Roteiros-base","Método clínico centrado na pessoa: quais os 4 componentes?","<ul><li>Explorar a <b>saúde, a doença e a experiência da doença</b> (SIFE)</li><li>Entender a <b>pessoa como um todo</b></li><li>Elaborar um <b>plano conjunto</b></li><li>Intensificar a <b>relação médico-pessoa</b></li></ul>Edições antigas tinham 6 componentes: confira qual a disciplina usa."],
+["Roteiros-base","SIFE: o que explorar na experiência da doença?","<b>S</b>entimentos, <b>I</b>deias, <b>F</b>unção (impacto no dia a dia) e <b>E</b>xpectativas."],
+["Roteiros-base","RCP adulto: frequência e profundidade das compressões?","<b>100 a 120/min</b>, <b>5 a 6 cm</b>, retorno total do tórax e mínimo de interrupções."],
+["Roteiros-base","RCP adulto sem via aérea avançada: relação compressão-ventilação?","<b>30:2</b>."],
+["Roteiros-base","RCP pediátrica: relação compressão-ventilação?","<b>30:2</b> com 1 socorrista · <b>15:2</b> com 2 socorristas."],
+["Roteiros-base","Quanto tempo para checar pulso e respiração na PCR?","<b>No máximo 10 segundos.</b>"],
+["Roteiros-base","Quais ritmos de PCR são chocáveis?","<b>Fibrilação ventricular</b> e <b>taquicardia ventricular sem pulso</b>. Assistolia e AESP não são."],
+["Roteiros-base","Causas reversíveis da PCR (5H e 5T)?","<ul><li><b>H:</b> hipovolemia, hipóxia, H+ (acidose), hipo/hipercalemia, hipotermia</li><li><b>T:</b> tensão no tórax (pneumotórax), tamponamento, toxinas, trombose pulmonar, trombose coronária</li></ul>"]
+];
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+var store={get:function(k,d){try{var v=localStorage.getItem(KEY+":"+k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(KEY+":"+k,JSON.stringify(v))}catch(e){}}};
+var reduce=false;try{reduce=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})}
+function fold(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+var AREA={};DATA.areas.forEach(function(a){AREA[a[0]]=a[1]});
+var T={};DATA.topics.forEach(function(t){T[t.id]=t});
+var STG=[["E","Estudo"],["R","Resumo"],["F","Flash card"],["H","24h"],["S","7d"],["Z","Fim"]];
+var SL={};STG.forEach(function(s){SL[s[0]]=s[1]});
+var st=store.get("st",{});
+function on(id,s){return !!(st[id]&&st[id][s])}
+function fmt(d){var p=d.split("-");return p[2]+"/"+p[1]}
+function tg(id,s){var p=on(id,s);return '<button type="button" class="tg" data-id="'+id+'" data-s="'+s+'" aria-pressed="'+p+'" aria-label="'+esc(SL[s]+" · "+T[id].n)+'">'+SL[s].replace("Flash card","F").replace("Estudo","E").replace("Resumo","R")+"</button>"}
+function trow(id,stages,meta){var t=T[id];return '<div class="row"><div class="nm"><span class="pr '+t.p+'">'+t.p+"</span>"+esc(t.n)+'<span class="meta">'+esc(meta)+'</span></div><div class="tgs">'+stages.map(function(s){return tg(id,s)}).join("")+"</div></div>"}
+function todayISO(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+var KIND={aula:["aula","Dia de aula"],tarde:["livre","Tarde livre"],"plantao-n":["plantao","Plantão noturno"],pos:["livre","Pós-plantão"],plantao:["plantao","Plantão 12h"],prova:["prova","Prova"]};
+var NOTE={
+"2026-11-07":"Plantão noturno: na madrugada, sem paciente, faça a revisão 24h abaixo nos flashcards e um bloco de questões das áreas da semana.",
+"2026-11-08":"Pós-plantão: durma de manhã. Tarde mais leve, temas B.",
+"2026-11-13":"Dia-folga do plano: nenhum tema novo. Use a noite para colocar em dia o que atrasou e fazer questões. Durma cedo, o plantão começa às 7h.",
+"2026-11-14":"Plantão 7h–19h: revisão 7 dias nos flashcards quando não houver paciente. À noite, descanso.",
+"2026-11-15":"Plantão 7h–19h: revisão 7 dias nos flashcards quando não houver paciente. À noite, descanso.",
+"2026-11-16":"Revisão final (parte 1): 5 min por tema, só os cards marcados “revisar” e o roteiro da estação. Use também as brechas do dia.",
+"2026-11-17":"Revisão final (parte 2), leve. Treine 2 ou 3 estações em voz alta e durma cedo.",
+"2026-11-18":"Dia do OSCE. Jaleco, estetoscópio, documento. Uma estação de cada vez."};
+function renderDays(){var today=todayISO(),h="";
+  DATA.days.forEach(function(d){var p=DATA.plan[d.d],k=KIND[d.k],past=d.d<today,isT=d.d===today;
+    h+='<details class="day'+(isT?" today":"")+(past?" past":"")+'" id="d-'+d.d+'"'+(past?"":" open")+'><summary><div class="dt"><small>'+d.w+"</small>"+fmt(d.d)+'</div><div class="win"><b>'+esc(d.win)+'</b>'+(p.new.length?p.new.length+" temas novos · ":"")+(p.r24.length+p.r7.length+p.fin.length)+' revisões</div><span class="badge '+k[0]+'">'+k[1]+"</span></summary><div class=\"body\">";
+    if(NOTE[d.d])h+='<p class="note" style="padding-top:12px">'+esc(NOTE[d.d])+"</p>";
+    if(p.new.length){var areas=[];p.new.forEach(function(id){var a=AREA[T[id].a];if(areas.indexOf(a)<0)areas.push(a)});
+      h+='<div class="blk"><h4>Na mesa · tema novo <span class="kicker">'+esc(areas.join(" + "))+"</span></h4>"+p.new.map(function(id){return trow(id,["E","R","F"],AREA[T[id].a]+(T[id].p==="A"?" · 25 min":" · 15 min"))}).join("")+"</div>"}
+    if(p.r24.length)h+='<div class="blk"><h4>Nas brechas · revisão 24h <span class="kicker">temas de '+fmt(T[p.r24[0]].d)+"</span></h4>"+p.r24.map(function(id){return trow(id,["H"],AREA[T[id].a]+" · 5 min nos flashcards")}).join("")+"</div>";
+    if(p.r7.length)h+='<div class="blk"><h4>Nas brechas · revisão 7 dias <span class="kicker">temas de '+fmt(T[p.r7[0]].d)+"</span></h4>"+p.r7.map(function(id){return trow(id,["S"],AREA[T[id].a]+" · 5 min")}).join("")+"</div>";
+    if(p.fin.length)h+='<div class="blk"><h4>Revisão final</h4>'+p.fin.map(function(id){return trow(id,["Z"],AREA[T[id].a]+" · estudado em "+fmt(T[id].d))}).join("")+"</div>";
+    h+="</div></details>"});
+  $("#days").innerHTML=h}
+function stats(){var n=0,e=0;DATA.topics.forEach(function(t){STG.forEach(function(s){if(on(t.id,s[0]))n++});if(on(t.id,"E"))e++});
+  var tot=DATA.topics.length*STG.length,pct=Math.round(n/tot*100);
+  $("#sStudied").innerHTML=e+"<small>/"+DATA.topics.length+"</small>";$("#sPct").innerHTML=pct+"<small>%</small>";$("#sBar").style.width=pct+"%";
+  var diff=Math.round((new Date(2026,10,18)-new Date(new Date().toDateString()))/864e5);
+  $("#sDays").textContent=diff>0?diff:(diff===0?"Hoje":"–");$("#sDaysL").textContent=diff>0?(diff===1?"dia até a prova":"dias até a prova"):(diff===0?"é dia de prova":"prova realizada")}
+document.addEventListener("click",function(e){var b=e.target.closest(".tg");if(!b)return;e.preventDefault();var id=b.dataset.id,s=b.dataset.s;
+  st[id]=st[id]||{};st[id][s]=!st[id][s];save();
+  document.querySelectorAll('.tg[data-id="'+id+'"][data-s="'+s+'"]').forEach(function(x){x.setAttribute("aria-pressed",String(!!st[id][s]))});stats()});
+/* temas */
+var tArea="all",tQ="";
+function renderChips(){var box=$("#tchips"),g=[["all","Todas"],["A","Só prioridade A"]].concat(DATA.areas);box.innerHTML="";
+  g.forEach(function(a){var n=a[0]==="all"?DATA.topics.length:a[0]==="A"?DATA.topics.filter(function(t){return t.p==="A"}).length:DATA.topics.filter(function(t){return t.a===a[0]}).length;
+    var b=document.createElement("button");b.type="button";b.className="chip";b.setAttribute("aria-pressed",String(tArea===a[0]));b.innerHTML=esc(a[1])+'<span class="c">'+n+"</span>";
+    b.addEventListener("click",function(){tArea=a[0];renderChips();renderTopics()});box.appendChild(b)})}
+function renderTopics(){var q=fold(tQ.trim());var L=DATA.topics.filter(function(t){return(tArea==="all"||(tArea==="A"?t.p==="A":t.a===tArea))&&(!q||fold(t.n+" "+AREA[t.a]).indexOf(q)>=0)});
+  $("#tlist").innerHTML=L.length?L.map(function(t){return trow(t.id,["E","R","F","H","S","Z"],AREA[t.a]+" · mesa "+fmt(t.d)+" · 24h "+fmt(t.r24)+(t.r7?" · 7d "+fmt(t.r7):"")+" · fim "+fmt(t.fin))}).join(""):'<div class="empty">Nada encontrado.</div>'}
+$("#tsearch").addEventListener("input",function(e){tQ=e.target.value;renderTopics()});
+/* navegação */
+var VIEWS=["plano","temas","osce","flashcards"],current="plano";
+function show(v,push){if(VIEWS.indexOf(v)<0)v="plano";current=v;
+  VIEWS.forEach(function(x){document.getElementById("view-"+x).hidden=(x!==v);document.getElementById("tab-"+x).setAttribute("aria-selected",String(x===v))});
+  if(push){try{history.replaceState(null,"","#"+v)}catch(e){}}window.scrollTo(0,0);if(v==="flashcards")renderCard();if(v==="temas")renderTopics();if(v==="plano")renderDays()}
+document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){show(b.dataset.view,true)})});
+$("#goToday").addEventListener("click",function(){var el=document.getElementById("d-"+todayISO())||document.getElementById("d-2026-11-03");el.open=true;el.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"})});
+$("#expandAll").addEventListener("click",function(){document.querySelectorAll(".day").forEach(function(d){d.open=true})});
+try{var hdr=$(".top");var setH=function(){document.documentElement.style.setProperty("--hh",hdr.offsetHeight+"px")};setH();new ResizeObserver(setH).observe(hdr)}catch(e){}
+/* flashcards */
+var CARDS=C.map(function(c,i){return{id:"c"+i,d:c[0],q:c[1],a:c[2]}});
+var DECKS=["Todos"];CARDS.forEach(function(c){if(DECKS.indexOf(c.d)<0)DECKS.push(c.d)});
+var marks=store.get("marks",{});
+var fc={deck:store.get("deck","Todos"),shuffle:false,onlyWrong:false,list:[],pos:0,flipped:false};
+if(DECKS.indexOf(fc.deck)<0)fc.deck="Todos";$("#fccount").textContent=CARDS.length;$("#tcount").textContent=DATA.topics.length;
+function shuffled(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function build(){var l=CARDS.filter(function(c){return(fc.deck==="Todos"||c.d===fc.deck)&&(!fc.onlyWrong||marks[c.id]==="no")});fc.list=fc.shuffle?shuffled(l):l;fc.pos=0;fc.flipped=false}
+function renderDecks(){var box=$("#fcdecks");box.innerHTML="";DECKS.forEach(function(d){
+  var n=d==="Todos"?CARDS.length:CARDS.filter(function(c){return c.d===d}).length;
+  var b=document.createElement("button");b.type="button";b.className="chip";b.setAttribute("aria-pressed",String(fc.deck===d));
+  b.innerHTML=esc(d)+'<span class="c">'+n+"</span>";b.addEventListener("click",function(){fc.deck=d;store.set("deck",d);renderDecks();build();renderCard()});box.appendChild(b)})}
+function setFlip(f){fc.flipped=f;$("#card").classList.toggle("flip",f);$(".face.back").setAttribute("aria-hidden",String(!f));$(".face.front").setAttribute("aria-hidden",String(f))}
+function fstats(){var y=0,n=0;CARDS.forEach(function(c){if(fc.deck!=="Todos"&&c.d!==fc.deck)return;if(marks[c.id]==="yes")y++;else if(marks[c.id]==="no")n++});$("#fcstat").textContent=y+" sei · "+n+" revisar";return{y:y,n:n}}
+function renderCard(){var L=fc.list,card=$("#card"),done=$("#fcdone"),total=L.length;fstats();
+  $("#fcpos").textContent=(total?Math.min(fc.pos+1,total):0)+" / "+total;$("#fcbar").style.width=(total?Math.min(fc.pos,total)/total*100:0)+"%";
+  if(!total){card.hidden=false;done.hidden=true;setFlip(false);$("#fdeck").textContent=fc.deck;$("#fq").textContent=fc.onlyWrong?"Nenhum cartão marcado como “revisar” neste baralho.":"Baralho vazio.";return}
+  if(fc.pos>=total){card.hidden=true;done.hidden=false;$("#fcbar").style.width="100%";var s=fstats();$("#donetxt").textContent="Fim do baralho: "+s.y+" sei · "+s.n+" para revisar.";return}
+  card.hidden=false;done.hidden=true;var c=L[fc.pos];
+  if(fc.flipped){card.style.transition="none";setFlip(false);void card.offsetWidth;card.style.transition=""}
+  $("#fdeck").textContent=c.d;$("#bdeck").textContent=c.d;$("#fq").textContent=c.q;$("#fq").classList.toggle("long",c.q.length>150);$("#fa").innerHTML=c.a}
+function go(d){var t=fc.list.length;if(!t)return;fc.pos=Math.max(0,Math.min(t,fc.pos+d));renderCard()}
+function mark(v){var c=fc.list[fc.pos];if(!c)return;marks[c.id]=v;save();go(1)}
+$("#prev").addEventListener("click",function(){go(-1)});$("#next").addEventListener("click",function(){go(1)});
+$("#markYes").addEventListener("click",function(){mark("yes")});$("#markNo").addEventListener("click",function(){mark("no")});
+$("#shuffle").addEventListener("click",function(){fc.shuffle=!fc.shuffle;this.setAttribute("aria-pressed",String(fc.shuffle));build();renderCard()});
+$("#onlyWrong").addEventListener("click",function(){fc.onlyWrong=!fc.onlyWrong;this.setAttribute("aria-pressed",String(fc.onlyWrong));build();renderCard()});
+$("#clearMarks").addEventListener("click",function(){var b=this;
+  if(b.dataset.armed!=="1"){b.dataset.armed="1";b.textContent="Toque de novo para zerar";setTimeout(function(){b.dataset.armed="";b.textContent="Zerar marcações"},3000);return}
+  marks={};save();b.dataset.armed="";b.textContent="Zerar marcações";build();renderCard()});
+$("#redoWrong").addEventListener("click",function(){fc.onlyWrong=true;$("#onlyWrong").setAttribute("aria-pressed","true");build();renderCard()});
+$("#redoAll").addEventListener("click",function(){fc.onlyWrong=false;$("#onlyWrong").setAttribute("aria-pressed","false");build();renderCard()});
+var stage=$("#stage"),cardEl=$("#card"),sx=0,sy=0,dx=0,drag=false,moved=false,suppress=false;
+stage.addEventListener("pointerdown",function(e){if(cardEl.hidden)return;drag=true;moved=false;sx=e.clientX;sy=e.clientY;dx=0;stage.style.transition="none"});
+stage.addEventListener("pointermove",function(e){if(!drag)return;dx=e.clientX-sx;var dy=e.clientY-sy;
+  if(!moved&&Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)){moved=true;try{stage.setPointerCapture(e.pointerId)}catch(_){}}
+  if(moved&&!reduce)stage.style.transform="translateX("+dx+"px) rotate("+(dx/40)+"deg)"});
+stage.addEventListener("pointerup",function(){if(!drag)return;drag=false;stage.style.transition=reduce?"none":"transform .25s ease";stage.style.transform="";
+  if(moved){suppress=true;if(dx<-60)go(1);else if(dx>60)go(-1)}});
+stage.addEventListener("pointercancel",function(){drag=false;moved=false;stage.style.transform=""});
+cardEl.addEventListener("click",function(){if(suppress){suppress=false;return}if(fc.list.length)setFlip(!fc.flipped)});
+document.addEventListener("keydown",function(e){if(current!=="flashcards")return;var tag=(e.target&&e.target.tagName)||"";if(tag==="INPUT")return;
+  if(e.key===" "||e.key==="Enter"){if(tag==="BUTTON"&&e.target!==cardEl)return;e.preventDefault();if(fc.list.length&&!cardEl.hidden)setFlip(!fc.flipped)}
+  else if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1);else if(e.key==="1")mark("no");else if(e.key==="2")mark("yes")});
+/* backup manual */
+function enc(o){return btoa(unescape(encodeURIComponent(JSON.stringify(o))))}
+function dec(s){return JSON.parse(decodeURIComponent(escape(atob(s.trim()))))}
+$("#bkGen").addEventListener("click",function(){$("#bk").value=enc({st:st,marks:marks});$("#bk").select();$("#bkMsg").textContent="Código gerado. Copie e guarde."});
+$("#bkCopy").addEventListener("click",function(){var t=$("#bk");if(!t.value)t.value=enc({st:st,marks:marks});t.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+  var msg=function(x){$("#bkMsg").textContent=x?"Copiado.":"Selecione o texto e copie manualmente."};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(function(){msg(true)},function(){msg(ok)})}else msg(ok)});
+$("#bkLoad").addEventListener("click",function(){try{var o=dec($("#bk").value);if(!o||typeof o.st!=="object")throw 0;st=o.st;marks=o.marks||{};save();if(current==="plano")renderDays();else if(current==="temas")renderTopics();stats();build();$("#bkMsg").textContent="Progresso restaurado."}catch(e){$("#bkMsg").textContent="Código inválido. Confira se colou o texto inteiro."}});
+/* progresso salvo na conta Claude (db por pessoa), com cópia local */
+var remote=null,busy=false,again=false,timer=null;
+function setSync(t){var el=$("#sync");if(el)el.textContent=t}
+function save(){store.set("st",st);store.set("marks",marks);if(!remote)return;clearTimeout(timer);timer=setTimeout(push,800)}
+function push(){if(!remote)return;if(busy){again=true;return}busy=true;
+  remote.set({st:st,marks:marks,at:Date.now()}).then(function(){setSync("✓ Progresso salvo na sua conta Claude: aparece igual em qualquer aparelho.")},function(){remote=null;setSync("Não consegui salvar na conta (a permissão do compartilhamento precisa permitir interagir). Por enquanto, salvo só neste aparelho.")}).then(function(){busy=false;if(again){again=false;push()}})}
+function within(p,ms){return Promise.race([p,new Promise(function(r){setTimeout(function(){r(null)},ms)})])}
+(async function(){try{
+  if(!window.claude||!window.claude.use){setSync("✓ Progresso salvo neste navegador. Use sempre o mesmo link no Safari, numa aba normal (não privada), e faça o backup de vez em quando.");return}
+  var db=await window.claude.use("db"),user=await window.claude.use("user");
+  if(!db||!user){setSync("✓ Progresso salvo neste navegador. Use sempre o mesmo link no Safari, numa aba normal (não privada), e faça o backup de vez em quando.");return}
+  var uid=await user.id();if(!uid){setSync("✓ Progresso salvo neste navegador. Use sempre o mesmo link no Safari, numa aba normal (não privada), e faça o backup de vez em quando.");return}
+  var ref=db.doc("data/users/"+uid+"/progress");var snap=await within(ref.get(),10000);
+  if(!snap){setSync("Sem conexão com a conta agora. Salvo só neste aparelho.");return}
+  if(snap.exists){var d=snap.data()||{},rs=d.st||{},rm=d.marks||{};
+    Object.keys(rs).forEach(function(id){st[id]=st[id]||{};Object.keys(rs[id]).forEach(function(s){if(rs[id][s])st[id][s]=true})});
+    Object.keys(rm).forEach(function(k){if(!(k in marks))marks[k]=rm[k]})}
+  remote=ref;store.set("st",st);store.set("marks",marks);
+  if(current==="plano")renderDays();else if(current==="temas")renderTopics();stats();build();if(current==="flashcards")renderCard();
+  push();
+}catch(e){setSync("Salvo só neste aparelho.")}})();
+renderDecks();build();renderChips();stats();
+window.addEventListener("hashchange",function(){var k=location.hash.slice(1);if(VIEWS.indexOf(k)>=0&&k!==current)show(k,false)});
+var h="";try{h=location.hash.slice(1)}catch(e){}
+show(VIEWS.indexOf(h)>=0?h:"plano",false);
+})();
+</script>
+</body>
+</html>
